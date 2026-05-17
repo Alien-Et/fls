@@ -4,6 +4,7 @@ from ..utils import h
 def layout(title, active, body):
     nav = [
         ("dashboard", "/", "📊 仪表盘"),
+        ("exec", "/exec", "⚡ 执行面板"),
         ("tasks", "/tasks", "📜 任务管理"),
         ("env", "/env", "🌐 全局变量"),
         ("proxy", "/proxy", "🧩 代理管理"),
