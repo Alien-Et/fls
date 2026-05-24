@@ -1,0 +1,23 @@
+{
+  "admin_token": "",
+  "port": 5700,
+  "log_cleanup_minutes": 30,
+  "log_max_size_mb": 10,
+  "log_keep_per_task": 10,
+  "task_timeout_seconds": 1800,
+  "random_delay_seconds": 0,
+  "online_script_source": "https://raw.githubusercontent.com/liyw0205/fls-scripts/main/index.json",
+  "task_types": {
+    "py": true,
+    "sh": true,
+    "js": true,
+    "ts": false,
+    "ps1": false,
+    "bat": false,
+    "php": true,
+    "rb": true,
+    "pl": true,
+    "lua": false,
+    "jar": true
+  }
+}
