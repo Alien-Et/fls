@@ -1,5 +1,5 @@
 {
-  "admin_token": "",
+  "admin_token": "123456",
   "port": 5700,
   "log_cleanup_minutes": 30,
   "log_max_size_mb": 10,
@@ -19,5 +19,7 @@
     "pl": true,
     "lua": false,
     "jar": true
-  }
+  },
+  "notify_items": [],
+  "notify_default_ids": []
 }

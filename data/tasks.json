@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1c8830bd36a64bdba2fe0d93a7a00c95",
+    "name": "中国移动云盘签到",
+    "remark": "从在线脚本导入：中国移动云盘",
+    "command": "task caiyun_box/run.mjs",
+    "cron": "30 9,16,23 * * *",
+    "enabled": true,
+    "env": {
+      "ydyp": "Basic bW9iaWxlOjE4NTI5MTg2NjYwOk1MbU01WmZQfDF8UkNTfDE3Nzk5ODAwMDYzODF8RGkycDRmWjZ5N19IRG9fR1BiTUg0TDcuV1dZXy44VHVFUlNpUmVKOEJHNk9NS3lhVlpldm1kUkxsX3Q3T2pJMGRlTTRoRVgwNkFHNnFHSmFYTEpWdWl5aUVZVW5FNTNwVjFFaDlDaTlJVEtPcXNrcWY4STh2aGRFNXJKRHFKSEhRMFoxNnJQWnFGRkozNWJxN183eGNUZDZNTGJzMzV2S1ZNMEFQWVZqSVA0LQ==#18529186660 & Basic bW9iaWxlOjE4MzE4NjY2NTY3OmVjTU9QRGxUfDF8UkNTfDE3ODA0NTQ3ODA4MjF8dFY1OEw1NTJFLkZ4Yjl4UTBDaGlCakVXZWRrcnFfVTBMUmtMWXp0NUxEODlEai45X3lqblJPZzE0TkxfSFZqRTJJYnA1THg5NTNfMms3WTNZSndfVFFiT1ByT0ZxOHMzYXB3RVc0akt0RW44di5JRDhfdjBMVWNpTW5FTktTdmRCRHkwLnlSYjJLeUMwbGdqUjNsTDRjM3hYZGZZV2cueXRGb25rb3dRUzJ3LQ==#18318666567\""
+    },
+    "proxy_id": "",
+    "notify": {
+      "mode": "default",
+      "ids": []
+    },
+    "random_delay": {
+      "mode": "none",
+      "seconds": 0
+    },
+    "run_count": 2,
+    "online_script_id": "caiyun",
+    "online_script_task_key": "caiyun:1:中国移动云盘签到",
+    "created_at": "2026-05-24 16:33:45",
+    "updated_at": "2026-05-24 16:36:19",
+    "last_run_at": "2026-05-24 16:36:19"
+  },
+  {
+    "id": "57cd0c52a2d74415885be017c0c4105e",
+    "name": "中国移动云盘兑换",
+    "remark": "从在线脚本导入：中国移动云盘",
+    "command": "task caiyun_box/exchange.mjs",
+    "cron": "",
+    "enabled": true,
+    "env": {},
+    "proxy_id": "",
+    "notify": {
+      "mode": "default",
+      "ids": []
+    },
+    "random_delay": {
+      "mode": "none",
+      "seconds": 0
+    },
+    "run_count": 0,
+    "online_script_id": "caiyun",
+    "online_script_task_key": "caiyun:2:中国移动云盘兑换",
+    "created_at": "2026-05-24 16:33:45",
+    "updated_at": "2026-05-24 16:34:44"
+  },
+  {
+    "id": "2ebda597cac64094948a1786572e649d",
+    "name": "中国移动云盘奖品ID查询",
+    "remark": "从在线脚本导入：中国移动云盘",
+    "command": "task caiyun_box/ExchangeList.py",
+    "cron": "",
+    "enabled": true,
+    "env": {},
+    "proxy_id": "",
+    "notify": {
+      "mode": "default",
+      "ids": []
+    },
+    "random_delay": {
+      "mode": "none",
+      "seconds": 0
+    },
+    "run_count": 0,
+    "online_script_id": "caiyun",
+    "online_script_task_key": "caiyun:3:中国移动云盘奖品ID查询",
+    "created_at": "2026-05-24 16:33:45",
+    "updated_at": "2026-05-24 16:34:48"
+  }
+]

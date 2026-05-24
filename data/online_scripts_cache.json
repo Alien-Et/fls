@@ -1,0 +1,173 @@
+[
+  {
+    "id": "caiyun",
+    "name": "中国移动云盘",
+    "type": "repo",
+    "link": "https://github.com/liyw0205/caiyun",
+    "link_name": "caiyun_box",
+    "doc_link": "https://cdn.jsdelivr.net/gh/liyw0205/caiyun@main/README.md",
+    "install": "cd caiyun_box\nif [ ! -f asign.json ]; then\n  cp default_asign.json asign.json\n  echo \"已生成 asign.json\"\nelse\n  echo \"asign.json 已存在，不覆盖\"\nfi",
+    "task_cron": [
+      {
+        "name": "中国移动云盘签到",
+        "cron": "30 9,16,23 * * *",
+        "command": "task caiyun_box/run.mjs",
+        "config_path": "caiyun_box/asign.json"
+      },
+      {
+        "name": "中国移动云盘兑换",
+        "cron": "",
+        "command": "task caiyun_box/exchange.mjs",
+        "var": {
+          "ACCOUNT_NO": "1",
+          "EXCHANGE_ID": "231228012"
+        },
+        "remark": "兑换商品。EXCHANGE_ID 为商品ID，ACCOUNT_NO 为账号下标，config[1] 对应 ACCOUNT_NO=1。",
+        "config_path": "caiyun_box/asign.json"
+      },
+      {
+        "name": "中国移动云盘奖品ID查询",
+        "cron": "",
+        "command": "task caiyun_box/ExchangeList.py",
+        "remark": "查询云朵兑换奖品ID并生成 ExchangeList.json。",
+        "config_path": "caiyun_box/ExchangeList.json"
+      }
+    ],
+    "created_at": "2026-05-07 00:00:00",
+    "updated_at": "2026-05-09 18:30:00",
+    "task_link": ""
+  },
+  {
+    "id": "chinaUnicom",
+    "name": "中国联通",
+    "type": "raw",
+    "link": "https://github.com/liyw0205/fls-scripts/raw/refs/heads/main/scripts/chinaUnicom/chinaUnicom.py",
+    "link_name": "chinaUnicom.py",
+    "doc_link": "https://cdn.jsdelivr.net/gh/liyw0205/fls-scripts@main/scripts/chinaUnicom/README.md",
+    "install": "${FLS_PYTHON:-python3} -m pip install pycryptodome",
+    "task_cron": [
+      {
+        "name": "中国联通任务",
+        "cron": "30 9,16 * * *",
+        "command": "task chinaUnicom.py",
+        "var": {
+          "chinaUnicomCookie": "a3e4c1ff2xxxxxxxxx"
+        },
+        "config_path": "unicom_token_cache.json"
+      }
+    ],
+    "created_at": "2026-05-07 00:00:00",
+    "updated_at": "2026-05-07 00:00:00",
+    "task_link": ""
+  },
+  {
+    "id": "kg",
+    "name": "酷狗音乐签到",
+    "type": "repo",
+    "link": "https://github.com/develop202/kgcheckin",
+    "link_name": "kgcheckin",
+    "doc_link": "https://cdn.jsdelivr.net/gh/develop202/kgcheckin@main/README.md",
+    "install": "cd kgcheckin\nnpm install",
+    "task_cron": [
+      {
+        "name": "酷狗音乐签到",
+        "cron": "30 8 * * *",
+        "command": "cd kgcheckin || exit 1\nfls_kill -p 3000\nnpm run main\nfls_kill -p 3000",
+        "var": {
+          "USERINFO": "[{\"userid\":123456789,\"token\":\"123456789987654321\"}]"
+        }
+      },
+      {
+        "name": "酷狗音乐扫码",
+        "cron": "30 20 * * *",
+        "command": "cd kgcheckin || exit 1\nfls_kill -p 3000\nnpm run qrcodeLogin\nfls_kill -p 3000"
+      }
+    ],
+    "created_at": "2026-05-07 00:00:00",
+    "updated_at": "2026-05-07 00:00:00",
+    "task_link": ""
+  },
+  {
+    "id": "cloud189checkin",
+    "name": "天翼云盘自动签到",
+    "type": "repo",
+    "link": "https://github.com/wes-lin/Cloud189Checkin",
+    "link_name": "Cloud189Checkin",
+    "doc_link": "https://cdn.jsdelivr.net/gh/wes-lin/Cloud189Checkin@main/README.md",
+    "install": "cd Cloud189Checkin\nnpm install",
+    "task_cron": [
+      {
+        "name": "天翼云盘自动签到",
+        "cron": "35 10 * * *",
+        "command": "cd Cloud189Checkin || exit 1\nnpm start",
+        "var": {
+          "TY_USERNAME_1": "账号1",
+          "TY_PASSWORD_1": "密码1",
+          "TY_USERNAME_2": "账号2",
+          "TY_PASSWORD_2": "密码2"
+        }
+      }
+    ],
+    "created_at": "2026-05-07 00:00:00",
+    "updated_at": "2026-05-07 00:00:00",
+    "task_link": ""
+  },
+  {
+    "id": "checkbox",
+    "name": "签到盒 checkbox",
+    "type": "repo",
+    "link": "https://github.com/Wenmoux/checkbox.git",
+    "link_name": "checkbox",
+    "doc_link": "https://cdn.jsdelivr.net/gh/Wenmoux/checkbox@master/README.md",
+    "install": "cd checkbox || exit 1\nnpm install\nnpm install cheerio\nif [ ! -f config.yml ]; then\n  cp config.yml.temple config.yml\n  echo \"已生成 config.yml\"\nelse\n  echo \"config.yml 已存在，不覆盖\"\nfi",
+    "task_link": "https://cdn.jsdelivr.net/gh/liyw0205/fls-scripts@main/scripts/checkbox/tasks.json",
+    "created_at": "2026-05-07 00:00:00",
+    "updated_at": "2026-05-07 00:00:00"
+  },
+  {
+    "id": "quark_checkin",
+    "name": "夸克网盘自动签到",
+    "type": "raw",
+    "link": "https://github.com/Liu8Can/Quark_Auot_Check_In/raw/refs/heads/main/checkIn_Quark.py",
+    "link_name": "checkIn_Quark.py",
+    "doc_link": "https://cdn.jsdelivr.net/gh/Liu8Can/Quark_Auot_Check_In@main/README.md",
+    "install": "${FLS_PYTHON:-python3} -m pip install requests",
+    "task_cron": [
+      {
+        "name": "夸克网盘自动签到",
+        "cron": "10 9,13 * * *",
+        "command": "task checkIn_Quark.py",
+        "var": {
+          "COOKIE_QUARK": "user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111;"
+        }
+      }
+    ],
+    "created_at": "2026-05-08 00:00:00",
+    "updated_at": "2026-05-08 00:00:00",
+    "task_link": ""
+  },
+  {
+    "id": "zaizaicat_checkin",
+    "name": "ZaiZaiCat-Checkin 自用签到合集",
+    "type": "repo",
+    "link": "https://github.com/Cat-zaizai/ZaiZaiCat-Checkin.git",
+    "link_name": "ZaiZaiCat-Checkin",
+    "doc_link": "https://cdn.jsdelivr.net/gh/Cat-zaizai/ZaiZaiCat-Checkin@main/README.md",
+    "install": "cd ZaiZaiCat-Checkin || exit 1\n${FLS_PYTHON:-python3} -m pip install requests --user\nmkdir -p config\nif [ ! -f config/token.json ]; then\n  echo '{}' > config/token.json\n  echo '已生成 config/token.json，请填写账号配置'\nelse\n  echo 'config/token.json 已存在，不覆盖'\nfi\nif [ ! -f config/notification.json ]; then\n  echo '{}' > config/notification.json\n  echo '已生成 config/notification.json，可选填写推送配置'\nelse\n  echo 'config/notification.json 已存在，不覆盖'\nfi",
+    "task_link": "https://cdn.jsdelivr.net/gh/liyw0205/fls-scripts@main/scripts/zaizaicat/tasks.json",
+    "created_at": "2026-05-08 00:00:00",
+    "updated_at": "2026-05-08 00:00:00"
+  },
+  {
+    "id": "dailycheckin",
+    "name": "DailyCheckIn 签到集合",
+    "type": "repo",
+    "link": "https://github.com/Sitoi/dailycheckin.git",
+    "link_name": "dailycheckin",
+    "doc_link": "https://cdn.jsdelivr.net/gh/Sitoi/dailycheckin@main/README.md",
+    "install": "cd dailycheckin || exit 1\n${FLS_PYTHON:-python3} -m pip install -r requirements.txt\n${FLS_PYTHON:-python3} -m pip install . --user\nif [ ! -f config.json ]; then\n  if [ -f docker/config.template.json ]; then\n    cp docker/config.template.json config.json\n    echo \"已生成 config.json\"\n  else\n    echo \"{}\" > config.json\n    echo \"已生成空 config.json\"\n  fi\nelse\n  echo \"config.json 已存在，不覆盖\"\nfi",
+    "task_link": "https://cdn.jsdelivr.net/gh/liyw0205/fls-scripts@main/scripts/dailycheckin/tasks.json",
+    "created_at": "2026-05-08 00:00:00",
+    "updated_at": "2026-05-08 00:00:00"
+  }
+]
